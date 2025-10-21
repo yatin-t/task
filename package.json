@@ -1,0 +1,16 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "description": "Lightweight task manager with mobile wrapper instructions",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 5500",
+    "build:www": "mkdir -p www && cp index.html style.css app.js www/"
+  },
+  "keywords": ["tasks","todo","capacitor","cordova"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

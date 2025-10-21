@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <h1>Tasks</h1>
+            <div class="header-meta">
+                <span id="total-count" class="badge">0</span>
+                <span id="remaining-count" class="muted">0 remaining</span>
+            </div>
+        </header>
+
+        <section class="controls">
+            <form id="task-form" class="task-form" aria-label="Add task">
+                <input type="text" id="task-input" placeholder="What do you need to do?" aria-label="Task description" required>
+                <select id="priority-select" aria-label="Priority">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <button type="submit" class="primary">Add</button>
+            </form>
+
+            <div class="filters" role="tablist" aria-label="Filters">
+                <button class="filter active" data-filter="all">All</button>
+                <button class="filter" data-filter="active">Active</button>
+                <button class="filter" data-filter="completed">Completed</button>
+                <input type="search" id="search" placeholder="Search tasks" aria-label="Search tasks">
+            </div>
+        </section>
+
+        <main>
+            <ul id="task-list" class="task-list" aria-live="polite"></ul>
+            <p id="empty" class="muted">No tasks yet — add one above.</p>
+        </main>
+    </div>
+
+    <!-- Edit modal (hidden) -->
+    <div id="edit-modal" class="modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="edit-title">
+            <h3 id="edit-title">Edit Task</h3>
+            <form id="edit-form">
+                <input type="text" id="edit-input" required>
+                <select id="edit-priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <div class="modal-actions">
+                    <button type="button" id="cancel-edit">Cancel</button>
+                    <button type="submit" class="primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
